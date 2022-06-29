@@ -49,7 +49,7 @@ exports.postList = async (req, res) => {
     } catch (err) {
         res.status(404).json({
             status: 'fail',
-            message: 'Invaild Data sent'
+            message: err
         })
     }
 }
