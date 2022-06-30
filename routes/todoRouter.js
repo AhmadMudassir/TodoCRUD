@@ -7,6 +7,10 @@ router
     .route('/isCompleted')
     .get(todoController.getAllTrue)
 
+router
+    .route('/isNotCompleted')
+    .get(todoController.getAllFalse)
+
 
 router
     .route('/:id')

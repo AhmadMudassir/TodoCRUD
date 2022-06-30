@@ -112,3 +112,21 @@ exports.getAllTrue = async (req, res) => {
     }
 }
 
+exports.getAllFalse = async (req, res) => {
+    try {
+        const list = await Todo.find({ checkBox: false })
+
+        res.status(200).json({
+            status: 'success',
+            data: {
+                list
+            }
+        })
+    } catch (err) {
+        res.status(404).json({
+            status: 'fail',
+            message: err
+        })
+    }
+}
+
