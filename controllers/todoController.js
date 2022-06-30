@@ -77,6 +77,9 @@ exports.updateList = async (req, res) => {
 
 exports.deleteList = async (req, res) => {
     try {
+        if (!req.params.id) {
+            throw 'todo ID required'
+        }
         const list = await Todo.findByIdAndDelete(req.params.id)
 
         res.status(204).json({
@@ -86,7 +89,7 @@ exports.deleteList = async (req, res) => {
     } catch (err) {
         res.status(404).json({
             status: 'fail',
-            message: error
+            message: err
         })
     }
 }
